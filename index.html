@@ -3,48 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChemistrySpot - Recherche de Produits</title>
+    <title>ChemistrySpot - Recherche de Produits Chimiques</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header>
+    <header class="main-header">
+        <div class="logo">
             <h1>ChemistrySpot</h1>
-            <input type="text" id="search-bar" placeholder="Rechercher des produits...">
-        </header>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Produits</a></li>
+                <li><a href="#">Catégories</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <div class="search-filters">
-            <div class="filter-group">
-                <label>Catégorie</label>
-                <select id="category-filter" multiple>
-                    <option value="reactifs">Réactifs</option>
-                    <option value="equipements">Équipements</option>
-                    <option value="verrerie">Verrerie</option>
-                </select>
+    <div class="container">
+        <div class="sidebar">
+            <div class="filter-section">
+                <h3>Filtres</h3>
+                <div class="filter-group">
+                    <label>Catégorie</label>
+                    <select id="category-filter" multiple>
+                        <option value="reactifs">Réactifs</option>
+                        <option value="equipements">Équipements</option>
+                        <option value="verrerie">Verrerie</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Plage de Prix</label>
+                    <div class="price-range">
+                        <input type="number" id="min-price" placeholder="Prix min">
+                        <span>-</span>
+                        <input type="number" id="max-price" placeholder="Prix max">
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <label>Disponibilité</label>
+                    <select id="availability-filter">
+                        <option value="all">Tous</option>
+                        <option value="in-stock">En stock</option>
+                        <option value="out-of-stock">Rupture de stock</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <main class="main-content">
+            <div class="search-bar-container">
+                <input type="text" id="search-bar" placeholder="Rechercher des produits chimiques...">
+                <button id="search-button">Rechercher</button>
             </div>
 
-            <div class="filter-group">
-                <label>Plage de Prix</label>
-                <div class="price-range">
-                    <input type="number" id="min-price" placeholder="Prix min">
-                    <input type="number" id="max-price" placeholder="Prix max">
+            <div class="results-header">
+                <span id="results-count">0 résultats</span>
+                <div class="sort-options">
+                    <label>Trier par:</label>
+                    <select id="sort-select">
+                        <option value="name">Nom</option>
+                        <option value="price-asc">Prix croissant</option>
+                        <option value="price-desc">Prix décroissant</option>
+                    </select>
                 </div>
             </div>
 
-            <div class="filter-group">
-                <label>Disponibilité</label>
-                <select id="availability-filter">
-                    <option value="all">Tous</option>
-                    <option value="in-stock">En stock</option>
-                    <option value="out-of-stock">Rupture de stock</option>
-                </select>
+            <div id="results-container" class="results-grid">
+                <!-- Les résultats de recherche seront générés dynamiquement -->
             </div>
-        </div>
-
-        <div id="results-container" class="results-grid">
-            <!-- Les résultats de recherche seront générés dynamiquement -->
-        </div>
+        </main>
     </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 ChemistrySpot. Tous droits réservés.</p>
+        </div>
+    </footer>
 
     <script src="search.js"></script>
 </body>
