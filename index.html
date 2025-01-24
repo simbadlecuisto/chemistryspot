@@ -2,14 +2,50 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Chemistry Spot</title>
-    <style>
-        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
-        h1 { color: #2c3e50; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChemistrySpot - Recherche de Produits</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Bienvenue sur Chemistry Spot</h1>
-    <p>Un site dédié à la passion de la chimie !</p>
+    <div class="container">
+        <header>
+            <h1>ChemistrySpot</h1>
+            <input type="text" id="search-bar" placeholder="Rechercher des produits...">
+        </header>
+
+        <div class="search-filters">
+            <div class="filter-group">
+                <label>Catégorie</label>
+                <select id="category-filter" multiple>
+                    <option value="reactifs">Réactifs</option>
+                    <option value="equipements">Équipements</option>
+                    <option value="verrerie">Verrerie</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Plage de Prix</label>
+                <div class="price-range">
+                    <input type="number" id="min-price" placeholder="Prix min">
+                    <input type="number" id="max-price" placeholder="Prix max">
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label>Disponibilité</label>
+                <select id="availability-filter">
+                    <option value="all">Tous</option>
+                    <option value="in-stock">En stock</option>
+                    <option value="out-of-stock">Rupture de stock</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="results-container" class="results-grid">
+            <!-- Les résultats de recherche seront générés dynamiquement -->
+        </div>
+    </div>
+
+    <script src="search.js"></script>
 </body>
 </html>
